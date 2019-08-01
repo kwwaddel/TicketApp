@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+  <div *ngIf="showVenues">
+    <div *ngFor="let venue of venues" style="cursor:pointer" (click)="selectVenue(venue)">{{venue.eventName}}</div>
+  </div>
+  <div *ngIf="selectedVenue != null">
+    <button style="cursor:pointer" (click)="returnToVenues()">Return to Venue List</button>
+    <div style="padding-top:10px">
+      <label>Event: {{selectedVenue.eventName}}</label>
+      <label>Location: {{selectedVenue.address}}</label>
+    </div>
+    <label style="position:center">STAGE</label>
+    <table>
+      <tr *ngFor="let ticket of getAisles('A')">
+        <td *ngFor="let ticket2 of getRows(ticket.seat.row)"><i (click)="selectSeat(ticket2)" class="fas fa-circle" [ngStyle]="getStyle(ticket2)"></i></td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf="selectedTickets.length != 0">
+    <label>To reserve or purchase tickets, please enter a name: </label>
+    <input type="text" [(ngModel)]="userName"/>
+    <div>
+      <label>Selected Seats:</label>
+    </div>
+    <div *ngFor="let ticket of selectedTickets">
+      <label>{{ticket.seat.aisle + ticket.seat.row}}</label>
+    </div>
+    <button style="cursor:pointer" (click)="reserveTickets()">Reserve</button>
+    <button style="cursor:pointer" (click)="purchaseTickets()">Purchase</button>
+    <button style="cursor:pointer" (click)="clearSelections()">Clear Selections</button>
+  </div>
+  <div style="padding-top:10px" *ngIf="reserved">
+    <label>Remaining seconds on reservation: </label>
+    <label>{{reserveTime}}</label>
+  </div>
+  <!--<div *ngIf="purchaseSuccess">
+    <label>Reserve Successful</label>
+  </div>
+  <label *ngIf="purchaseSuccess">Purchase Successful!</label>-->
+</body>
+</html>

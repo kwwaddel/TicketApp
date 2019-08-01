@@ -1,0 +1,5 @@
+*.dll
+*.d.ts
+**/node_modules/**
+**/obj/**
+**/debug/**
