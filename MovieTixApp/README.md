@@ -1,13 +1,14 @@
 ## Run Angular Web Project:
 
 - open a command prompt
-- navigate to '' run 'npm install'
+- navigate to '[installdir]/MovieTixApp/wwwroot/MovieWebApp' run 'npm install'
 - run 'ng build'
 - run 'ng serve'
 
 ## Run Web API:
 
 - open a command prompt
+- navigate to '[installdir]/MovieTixApp'
 - run 'dotnet run'
 
 open a web browser and navigate to http://localhost:4200 to access the web application

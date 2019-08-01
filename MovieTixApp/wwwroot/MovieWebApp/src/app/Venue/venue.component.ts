@@ -5,8 +5,7 @@ import { Response } from '@angular/http';
 
 @Component({
   selector: 'venue',
-  templateUrl: './venue.component.html'//,
-  //styleUrls: ['./venue.component.css']
+  templateUrl: './venue.component.html'
 })
 
 export class VenueComponent implements OnInit {
